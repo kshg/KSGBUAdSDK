@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint KSGBUAdSDK_v1.9.8.1.podspec.podspec' to ensure this is a
+#  Be sure to run `pod spec lint KSGBUAdSDK.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "KSGBUAdSDK_v1.9.8.1.podspec"
-  s.version      = "0.0.1"
+  s.name         = "KSGBUAdSDK"
+  s.version      = "0.0.2"
   s.summary      = "今日头条穿山甲广告联盟SDK"
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  					今日头条穿山甲广告联盟SDK集成
+                    今日头条穿山甲广告联盟SDK集成
                    DESC
 
   s.homepage     = "https://github.com/kshg/KSGBUAdSDK"
@@ -40,8 +40,8 @@ Pod::Spec.new do |s|
   #
 
   s.license      = "MIT"
-  s.license      = { :type => "MIT", :file => "README.md" }
-  # s.license = "Copyright (c) 2019年 kshg. All rights reserved."
+  s.license      = { :type => "MIT", :file => "LICENSE" }
+  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -69,7 +69,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
-  s.ios.deployment_target = "8.0"
+  # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -92,9 +92,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  # s.source_files  = 'Libs'
+  # s.source_files  = "Classes", "Classes/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
-
+    s.resources  = 'Libs/BUAdSDK.bundle'
+    s.vendored_frameworks = 'Libs/BUAdSDK.framework'
   # s.public_header_files = "Classes/**/*.h"
 
 
@@ -106,13 +107,10 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  s.resources  = '**/*.bundle'
-  # s.vendored_libraries = 'Libs/**/*.framework'
+  # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-  # s.resource_bundles = 'Libs/BUAdSDK.bundle'
-  s.vendored_frameworks = '**/*.framework'
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -122,9 +120,11 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "StoreKit", "MobileCoreServices", "WebKit", "MediaPlayer", "CoreMedia", "AVFoundation", "CoreLocation", "CoreTelephony", "SystemConfiguration", "AdSupport", "CoreMotion"
+  # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
+  # s.libraries = "iconv", "xml2"
+  s.frameworks = "StoreKit", "MobileCoreServices", "WebKit", "MediaPlayer", "CoreMedia", "AVFoundation", "CoreLocation", "CoreTelephony", "SystemConfiguration", "AdSupport", "CoreMotion"
   s.libraries = "resolv.9", "c++", "z"
 
 
